@@ -3,8 +3,10 @@ import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, ConversationHandler, ContextTypes, filters
 
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
-ADMIN_CHAT_ID = 123456789
+import os
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+ADMIN_CHAT_ID = int(os.environ.get("ADMIN_CHAT_ID", "0"))
+
 
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 logger = logging.getLogger(__name__)
